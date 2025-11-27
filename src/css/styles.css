@@ -1,0 +1,165 @@
+:root {
+    --masfuerte: #03045e;
+    --fuerte: #0077b6;
+    --medio: #00b4d8;
+    --claro: #90e0ef;
+    --masclaro: #caf0f8;
+}
+
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: linear-gradient(to right, var(--masfuerte), var(--fuerte));
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 500px;
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 32px;
+}
+
+
+/* LOGIN */
+label {
+    display: inline-block;
+    margin-bottom: 8px;
+    color: #555;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-color: #4facfe;
+    outline: none;
+}
+
+.toggle-pw{
+    background: none;
+    border: none;
+    color: (var(--masfuerte));
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+}
+
+.toggle-pw:hover{
+    text-decoration: none;
+    color: var(--masfuerte);
+}
+
+
+.input-group{
+    position: relative;
+    width: 100%;
+}
+
+.input-group input {
+    width: 100%;
+    padding-right: 80px;
+}
+
+.input-group .toggle-pw {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-100%);
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 14px;
+    color: var(--masfuerte);
+}
+
+
+input[type="submit"] {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(to right, var(--medio), var(--claro));
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+input[type="submit"]:hover{
+    background: linear-gradient(to right, var(--claro), var(--medio));
+}
+
+/* ALERTA CERRAR SESION */
+.alert {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    color: var(--masfuerte);
+    border-radius: 5px;
+    background-color: var(--claro);
+}
+
+
+/* REGISTRO */
+
+.error-message {
+    background: #f8d7da;
+    color: #721c24;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border: 2px solid #f5c6cb;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* ENLACE */
+
+a {
+    color: #4facfe;
+    text-decoration: none;
+    font-weight: bold;
+    display: block;
+    text-align: center;
+    margin-top: 25px;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+

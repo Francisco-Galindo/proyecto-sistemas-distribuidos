@@ -1,0 +1,38 @@
+services:
+  php:
+    build: ./php
+    ports:
+      - 80:80
+      - 433:433
+    volumes:
+      - ./src:/var/www/html
+      - ./php/ssl:/etc/apache2/ssl
+    container_name: back-container
+    network_mode: "host"
+    depends_on:
+      - db
+  db:
+    image: mariadb
+    container_name: base-container
+    volumes:
+      - ./db/dump.sql:/docker-entrypoint-initdb.d/database_dump.sql
+    environment:
+      MYSQL_DATABASE: chats
+      MYSQL_ROOT_PASSWORD: root
+    # network_mode: "host"
+    ports:
+      - 3306:3306
+
+  phpmyadmin:
+    image: phpmyadmin
+    restart: always
+    network_mode: "host"
+    ports:
+      - 8090:8090
+    environment:
+      - PMA_ARBITRARY=1
+      - APACHE_HTTP_PORT_NUMBER=8090
+      - PHPMYADMIN_ALLOW_REMOTE_CONNECTIONS=true
+      - DATABASE_ENABLE_SSL=false
+    command: /bin/bash -c "sed -i \"s/80/$$APACHE_HTTP_PORT_NUMBER/g\" /etc/apache2/sites-available/000-default.conf /etc/apache2/ports.conf && /docker-entrypoint.sh apache2-foreground"
+
